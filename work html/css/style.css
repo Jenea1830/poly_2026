@@ -1,0 +1,47 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+.ssection{
+	background:gray;
+	color:white;
+	padding-top:70px;
+	padding-bottom:50px;
+	
+}
+.scontainer{
+	width:1140px;
+	margin:auto;
+	
+}
+.srow{
+	display:flex;
+}
+.scoll1{
+	width:33.33%;
+	padding-left:15px;
+	padding-right:15px;
+	
+	
+}
+ 
+.scoll2{
+	width:33.33%;
+	padding-left:15px;
+	padding-right:15px;
+}
+.sbox{
+	
+	padding:20px;
+	
+}
+.sbox h1{
+	margin-bottom:15px;
+	text-align:left;
+}
+.sbtn{
+	margin-top:20px;
+	padding:15px;
+}
+	
