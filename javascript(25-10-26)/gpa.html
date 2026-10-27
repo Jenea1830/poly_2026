@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <lable>Enter GPA</lable><input type="text" id="gpa"></br>
+    <button onclick="resultfun()">Letter Grade</button>
+    <script>
+        function resultfun() {
+            let gpa = parseInt(document.getElementById("gpa").value)
+            let grade="";
+            switch (gpa) {
+                case 5.00:
+                    grade="A+"
+                    break
+
+                case 4.00:
+                     grade="A"
+                    break
+
+                case 3.50:
+                    grade="A-"
+                    break
+                case 3.00:
+                    grade="B+"
+                    break
+                case 2.00:
+                    grade="C"
+                    break
+                case 1.00:
+                    grade="D"
+                    break
+                default:
+                    grade="F"
+
+            }
+            window.alert(grade)
+        }
+
+    </script>
+</body>
+
+</html>

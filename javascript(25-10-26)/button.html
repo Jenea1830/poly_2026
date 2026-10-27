@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <lable>Enter number 1</lable>
+    <input type="text" name="number1" id="number1">
+    <lable>Enter number 2</lable>
+    <input type="text" name="number2" id="number2">
+    <button onclick="actionfun()">submit</button>
+    <script>
+        //adding number
+        window.alert("Nothing")
+        function actionfun() {
+            let n1 = document.getElementById("number1").value
+            let n2 = document.getElementById("number2").value
+            window.alert(typeof n1)
+            let s = parseInt(n1) + parseInt(n2)
+            window.alert(s)
+            //greater than code
+
+            if (n1 > n2) {
+                window.alert("n1 is greater")
+            }
+            else {
+                window.alert("n2 is greater")
+            }
+            //both are equal code
+            if (n1 == n2) {
+                window.alert("Both are equal")
+            }
+            else if (n1 > n2) {
+                window.alert("n1 is greater")
+            }
+            else {
+                window.alert("n2 is greater")
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
