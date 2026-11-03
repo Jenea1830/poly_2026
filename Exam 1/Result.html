@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Management System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #8f1d95;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            color: rgb(253, 103, 22);
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+            border: 1px solid rgb(140, 20, 36);
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: rgb(43, 106, 42);
+            color: rgb(248, 250, 250);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(139, 0, 93);
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e8f8f5;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Result Management System</h2>
+
+    <input type="text" id="name" placeholder="Enter Student Name">
+
+    <h3>Enter Subject Marks</h3>
+
+    <input type="number" id="bangla" placeholder="Bangla">
+    <input type="number" id="english" placeholder="English">
+    <input type="number" id="math" placeholder="Mathematics">
+    <input type="number" id="science" placeholder="Science">
+    <input type="number" id="ict" placeholder="ICT">
+
+    <br><br>
+
+    <button onclick="calculateResult()">
+        Calculate Result
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function calculateResult() {
+
+    
+    let name = document.getElementById("name").value;
+
+   
+    let marks = [
+        Number(document.getElementById("bangla").value),
+        Number(document.getElementById("english").value),
+        Number(document.getElementById("math").value),
+        Number(document.getElementById("science").value),
+        Number(document.getElementById("ict").value)
+    ];
+
+    
+    let subjects = [
+        "Bangla",
+        "English",
+        "Mathematics",
+        "Science",
+        "ICT"
+    ];
+
+    
+    if (name.trim() == "") {
+        document.getElementById("result").innerHTML =
+        "<p class='error'>Please enter student name!</p>";
+        return;
+    }
+
+    for (let i = 0; i < marks.length; i++) {
+
+        if (marks[i] < 0 || marks[i] > 100 ||
+            document.getElementsByTagName("input")[i + 1].value == "") {
+
+            document.getElementById("result").innerHTML =
+            "<p class='error'>Please enter valid marks (0-100)!</p>";
+
+            return;
+        }
+    }
+
+    
+    let total = 0;
+
+    for (let i = 0; i < marks.length; i++) {
+        total = total + marks[i];
+    }
+
+   
+    let average = total / 5;
+
+   
+    let status = "Pass";
+
+    for (let i = 0; i < marks.length; i++) {
+
+        if (marks[i] < 33) {
+            status = "Fail";
+            break;
+        }
+    }
+
+   
+    let grade;
+
+    if (average >= 80) {
+        grade = "A+";
+    }
+    else if (average >= 70) {
+        grade = "A";
+    }
+    else if (average >= 60) {
+        grade = "A-";
+    }
+    else if (average >= 50) {
+        grade = "B";
+    }
+    else if (average >= 40) {
+        grade = "C";
+    }
+    else if (average >= 33) {
+        grade = "D";
+    }
+    else {
+        grade = "F";
+    }
+
+   
+    let subjectResult = "";
+
+    for (let i = 0; i < subjects.length; i++) {
+        subjectResult += subjects[i] + ": " +
+        marks[i] + "<br>";
+    }
+
+   
+    let i = 1;
+
+    while (i <= 10) {
+        console.log(i);
+        i++;
+    }
+
+   
+    document.getElementById("result").innerHTML =
+
+        "<h3>Final Result</h3>" +
+        "Student Name: " + name + "<br><br>" +
+
+        "<b>Subject Marks:</b><br>" +
+        subjectResult + "<br>" +
+
+        "Total Marks: " + total + "<br>" +
+        "Average Marks: " + average.toFixed(2) + "<br>" +
+        "Final Grade: " + grade + "<br>" +
+        "Result Status: " + status;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       #parent{
+        width:80%;
+        margin:20px auto;
+        border-collapse: collapse;
+        font-family: Arial, Helvetica, sans-serif;
+       }
+       #parent td{
+        background:gray;
+        color: white;
+
+       }
+       #parent th,#parent td{
+        padding: 10px;
+        border: 1px solid black;
+        text-align: center;
+       }
+       #parent tr:nth-child(even){
+        background: white;
+       }
+      
+    </style>
+
+</head>
+
+<body>
+    <table id="parent" cellspacing="0">
+        <tr>
+            <td>Name</td>
+            <td>Roll</td>
+            <td>status</td>
+        </tr>
+    </table>
+
+    <script>
+        let ptable = document.getElementById("parent")
+        let student = [
+            {name: "Mizan", roll: 12, status: "active"},
+            {name: "talha", roll: 13, status: "active"},
+            {name: "nayeem", roll: 14, status: "inactive"},
+            {name: "ayat", roll: 15, status: "active"},
+        ]
+        for (x = 0; x < student.length; x++) 
+        {
+            if (student[x].status == "inactive") {continue;}
+            let tr = document.createElement("tr");
+            tr.innerHTML =
+                "<td>" + student[x].name + "</td>" +
+                "<td>" + student[x].roll + "</td>" +
+                "<td>" + student[x].status + "</td>";
+                ptable.appendChild(tr);
+        }
+    </script>
+</body>
+
+</html>
